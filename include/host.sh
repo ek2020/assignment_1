@@ -1,5 +1,5 @@
 echo "Entering into HOST.SH"
-PROJECTFOLDER='demo.com'
+PROJECTFOLDER='/demo'
 dir="/var/www/${PROJECTFOLDER}/html/"
 sudo mkdir $dir 
 chmod -R 755 $dir

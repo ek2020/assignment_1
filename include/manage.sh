@@ -14,9 +14,10 @@ read_input() {
     then 
         echo "Stopping MySQL..."
         /etc/init.d/mysql stop
-
+	
         echo "Stopping Apache..."
         /etc/init.d/apache2 stop
+        read_input
     elif [ $user_input == 'status' ]
     then
 	echo "Checking MySql-Server Status...:>"
@@ -26,6 +27,7 @@ read_input() {
 		start_mysql
 	else
 		echo "All Is Well"
+		
 	fi
 	echo "Checking Apache-Server Status .... :>"
 	UP=$(/etc/init.d/apache2 status | grep running | grep -v not | wc -l);
@@ -34,7 +36,9 @@ read_input() {
 		start_apache
 	else
 		echo "All is well"
+	
 	fi
+	read_input
     elif  [$user_input == 'exit']; then
 	    exit 1
 	     
